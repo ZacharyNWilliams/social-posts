@@ -1,0 +1,27 @@
+.main-title{
+    color:  #03a9f4;
+    text-align: center;
+}
+
+button{
+    background-color:  #03a9f4;
+    color: white;
+ align-items: center;
+   
+}
+
+#thought-button{
+    width: 60em;
+   height: 5em;
+   align-content: center;
+   
+   
+}
+#thought-div, #form-title, #whole-form-div, #form-input{
+display: flex;
+justify-content: center;
+}
+#whole-form-div{
+    background-color: #03a9f4;;
+}
+
