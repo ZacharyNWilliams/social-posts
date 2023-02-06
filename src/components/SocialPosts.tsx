@@ -37,38 +37,42 @@ function SocialPosts(){
         ]);
       }
     return(
-        <div >
-            <div>
-                <ul>
+      <div className="App">
+        
+        <ul>
                    
-                            <div id='thought-button-div'>
+           <div id='thought-button-div'>
                                
-                                <Button id='Show-hide'  color="danger" onClick={toggle}>New Thought</Button>
-                            </div>
-                    \
-                </ul>
-            </div>
-        <div className="App">
+            <Button id='Show-hide'  color="danger" onClick={toggle}>New Thought</Button>
+           </div>
+                    
+         </ul>
+            
+        
      
-    </div>
     <div>
-   
-   
-    </div>
-    <Modal isOpen= {modal} toggle = {toggle}>
-    <PostForm addPost={addPost}/>
-    </Modal>
-    <div> 
-        {posts.map((post, index) => (
+    {posts.map((post, index) => (
           <PostList
             key={index}
             post={post}
             onDelete={() => handleDelete(index)}
           />
-        ))}</div>
+        ))}
+        
+    <Modal isOpen= {modal} toggle = {toggle}>
+    <PostForm addPost={addPost}/>
+    </Modal>
+    </div>
+   
+    <div>
+   
+   
+    </div>
+   
+
      
     
-  
+ 
        </div>
     )
 }
