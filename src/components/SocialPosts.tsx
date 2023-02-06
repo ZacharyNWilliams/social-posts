@@ -15,30 +15,15 @@ function SocialPosts(){
     const toggle = () => setModal(!modal);
    
     const [posts, setPosts] = useState<Post[]>([
-            {title: "yo", thought:"yoo"}
+             // Array that displays posts
+            // {title: "yo", thought:"yoo"}
     
     ])
     const handleDelete = (index: number) => {
         setPosts(posts.filter((_, i) => i !== index));
       };
         
-    const [fruits, setFruits] = useState([
-        "🍎 Apple",
-        "🍊 Orange",
-        "🍌 Banana",
-        "🍇 Grapes",
-      ]);
-
-      const deleteByValues = (value: string) => {
-        setFruits(oldValues => {
-          return oldValues.filter(fruit => fruit !== value)
-        })
-      }
-      const deleteByValue = (value: string) => {
-        setFruits(oldValues => {
-          return oldValues.filter(fruit => fruit !== value)
-        })
-      }
+ 
 
 
     function addPost(post:Post){
@@ -66,28 +51,24 @@ function SocialPosts(){
         <div className="App">
      
     </div>
-    
-            <Modal isOpen= {modal} toggle = {toggle}>
-                <ModalHeader>
-
-                </ModalHeader>
-                <ModalBody>
-                <PostForm addPost={addPost}/>
-                </ModalBody>
-            </Modal>
-            
-            {posts.map((post, index) => (
+    <div>
+   
+   
+    </div>
+    <Modal isOpen= {modal} toggle = {toggle}>
+    <PostForm addPost={addPost}/>
+    </Modal>
+    <div> 
+        {posts.map((post, index) => (
           <PostList
             key={index}
             post={post}
             onDelete={() => handleDelete(index)}
           />
-        ))}
-           
-            {/* {posts.map((post) => <PostList post={post} onDelete={function (): void {
-                throw new Error('Function not implemented.');
-            } }/>)} */}
-       
+        ))}</div>
+     
+    
+  
        </div>
     )
 }

@@ -13,12 +13,7 @@ interface PostInListProps{
 }
 
 function PostList({post, onDelete}: { post: Post, onDelete: () => void }){
-    // const [modal, setModal] = useState(false);
-    // const toggle = () => setModal(!modal);
 
-    // function addContact(contact:Contact){
-    //     setContacts([...contacts, contact]);
-    // }
     const [posts, setPosts] = useState<Post[]>([    
       ])
 
@@ -28,15 +23,7 @@ function PostList({post, onDelete}: { post: Post, onDelete: () => void }){
       };
     return(
         <div>
-            <div>
-                {posts.map((post,index)=> (
-                    <div key={index}>
-                        button
-                    </div>
-                )
-                
-                )}
-            </div>
+       
         
         <div className='post-list'>
             
@@ -49,16 +36,11 @@ function PostList({post, onDelete}: { post: Post, onDelete: () => void }){
             <button onClick={onDelete} > 
             <FontAwesomeIcon  icon={faTrash} />
             </button>
-            {/* <Modal isOpen = {modal} toggle = {toggle}> */}
-            {/* <ModalHeader toggle={toggle}>Modal title</ModalHeader> */}
-            {/* <ModalBody> */}
-            {/* <ContactForm addContact={addContact} /> */}
-            {/* </ModalBody> */}
-            {/* </Modal> */}
+       
             </div>
             
             
-        {/* <DeleteIcon/> */}
+        
         </div>
         </div>
     )

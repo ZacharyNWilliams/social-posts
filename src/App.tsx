@@ -21,26 +21,14 @@ function setOffOrOn(){
 let showForm =  (isOn ? "whole-form-div-show" : "");
 
   return (
-<div className={showForm}>
-<h1 className='main-title'>My thoughts</h1>
-<div>
-<div id='thought-div'>
- 
-{/* {
-                    
-    isOn ? <button type="submit" onClick={() => setOffOrOn()}>Add Post</button>
-          :
-          <button type="submit" onClick={() => setOffOrOn()}>Add Post</button>
-                    
-}    */}
-</div>
-</div>
-<SocialPosts/>
-<div>
+   
 
- 
- 
-</div>
+<div className={showForm}>
+
+<h1 className='main-title'>My thoughts</h1>
+
+<SocialPosts/>
+
 
 </div>
 
