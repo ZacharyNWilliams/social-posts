@@ -1,28 +1,49 @@
 
 import {useState} from 'react'
+import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 
 
 
 
 import { Post } from '../interfaces/Post';
-import { ContactForm } from './PostForm';
+import { PostForm } from './PostForm';
 import PostList from './PostInList';
 
 function SocialPosts(){
-   
-    const [posts, setPosts] = useState<Post[]>([       
-        {title: "Boness", thought: "Corgiato"},
-        {title: "Bonesaroonie", thought: "Corgiate"},
-        {title: "Bonesamania", thought: "Corgilaraati"},])
-        
-    const [hidden, setHidden] = useState(false);
 
-    const [formOpen, setFormOpen] = useState(false);
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+   
+    const [posts, setPosts] = useState<Post[]>([
+            {title: "yo", thought:"yoo"}
+    
+    ])
+    const handleDelete = (index: number) => {
+        setPosts(posts.filter((_, i) => i !== index));
+      };
+        
+    const [fruits, setFruits] = useState([
+        "🍎 Apple",
+        "🍊 Orange",
+        "🍌 Banana",
+        "🍇 Grapes",
+      ]);
+
+      const deleteByValues = (value: string) => {
+        setFruits(oldValues => {
+          return oldValues.filter(fruit => fruit !== value)
+        })
+      }
+      const deleteByValue = (value: string) => {
+        setFruits(oldValues => {
+          return oldValues.filter(fruit => fruit !== value)
+        })
+      }
+
 
     function addPost(post:Post){
         setPosts([...posts,post]);
-        setHidden(false);
-        setFormOpen(false);
+
     }
     function handlePostFormDelete(index: number) {
         setPosts((prev) => [
@@ -31,14 +52,45 @@ function SocialPosts(){
         ]);
       }
     return(
-        <div>
-          
-        <div>
-            <ContactForm addPost={addPost}/>
-            {posts.map((post) => <PostList post = {post}/>)}
-        </div>
+        <div >
+            <div>
+                <ul>
+                   
+                            <div id='thought-button-div'>
+                               
+                                <Button id='Show-hide'  color="danger" onClick={toggle}>New Thought</Button>
+                            </div>
+                    \
+                </ul>
+            </div>
+        <div className="App">
+     
+    </div>
+    
+            <Modal isOpen= {modal} toggle = {toggle}>
+                <ModalHeader>
+
+                </ModalHeader>
+                <ModalBody>
+                <PostForm addPost={addPost}/>
+                </ModalBody>
+            </Modal>
+            
+            {posts.map((post, index) => (
+          <PostList
+            key={index}
+            post={post}
+            onDelete={() => handleDelete(index)}
+          />
+        ))}
+           
+            {/* {posts.map((post) => <PostList post={post} onDelete={function (): void {
+                throw new Error('Function not implemented.');
+            } }/>)} */}
+       
        </div>
     )
 }
 
 export default SocialPosts;
+
